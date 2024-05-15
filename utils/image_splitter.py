@@ -80,7 +80,7 @@ class ImageSplitter:
             cv2.imwrite('image' + str(i+1) + '.jpg', im)
 
     def naive_algorithm(self):
-
+        y_max = self.inverted_gray_image.shape[1]
         line_median = self.inverted_gray_image.shape[1] // 2
         first_gap = np.argmin(self.inverted_gray_image[:, 0:line_median].sum(axis=0))
         second_gap = np.argmin(self.inverted_gray_image[:, line_median: y_max].sum(axis=0))
